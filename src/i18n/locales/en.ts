@@ -1,0 +1,100 @@
+export const en = {
+  meta: {
+    siteName: 'La Esquinita',
+    pages: {
+      home: 'Home',
+      about: 'About',
+      menu: 'Menu',
+      contact: 'Contact',
+    },
+  },
+  nav: {
+    home: 'Home',
+    about: 'About',
+    menu: 'Menu',
+    contact: 'Contact',
+  },
+  lang: {
+    label: 'Language',
+    es: 'ES',
+    en: 'EN',
+    ru: 'RU',
+  },
+  hero: {
+    subtitle: 'corner of flavor',
+    text: 'Authentic Spanish cuisine in the heart of the city. Tradition, passion and the best ingredients for you and your loved ones.',
+    menu: 'View menu',
+    reserve: 'Book a table',
+  },
+  about: {
+    title: 'The story of La Esquinita',
+    text1:
+      'A small restaurant with a big heart. La Esquinita was born from love for Mediterranean aromas, evenings with friends and crispy tapas. Our team creates a warm Spanish atmosphere every day where each dish is a small piece of art. Come taste, smile and enjoy life.',
+    text2: 'Wine, tapas, paella and hundreds of shades of pleasure.',
+  },
+  menu: {
+    title: 'Our signature dishes',
+    allergens: {
+      legendTitle: 'Allergen legend',
+      items: {
+        gluten: 'Gluten',
+        crustaceans: 'Crustaceans',
+        egg: 'Egg',
+        fish: 'Fish',
+        peanut: 'Peanut',
+        soy: 'Soy',
+        lactose: 'Lactose',
+        nuts: 'Tree nuts',
+        celery: 'Celery',
+        mustard: 'Mustard',
+        sesame: 'Sesame',
+        sulfites: 'Sulfites',
+        lupin: 'Lupin',
+        mollusks: 'Mollusks',
+      },
+    },
+    items: {
+      paella: {
+        title: 'Valencian Paella',
+        price: '€24.90',
+        desc: 'Aromatic rice with chicken, rabbit, green beans and saffron. Served with lemon and aioli.',
+        badge: 'Best seller',
+      },
+      gazpacho: {
+        title: 'Andalusian Gazpacho',
+        price: '€9.50',
+        desc: 'Cold tomato soup with cucumber, pepper, garlic and olive oil. Summer freshness in every spoon.',
+        badge: 'Vegan',
+      },
+      chorizo: {
+        title: 'Old-style Chorizo',
+        price: '€13.90',
+        desc: 'Spicy chorizo sausages braised in cider with paprika and herbs. Served with crusty bread.',
+        badge: 'Spicy 2/3',
+      },
+      gambas: {
+        title: 'Garlic Shrimp',
+        price: '€16.50',
+        desc: 'King prawns in garlic and chili oil with parsley. The perfect tapa.',
+        badge: 'Chef special',
+      },
+    },
+  },
+  contact: {
+    title: 'Come visit us',
+    place: 'La Esquinita',
+    address: '12 Calle del Sabor, Madrid',
+    phone: '+34 912 34 56 78',
+    email: "hola{'@'}laesquinita.es",
+    hours: 'Every day: 12:00 - 23:00 (Fri-Sat until 01:00)',
+    reserve: 'Book a table',
+    instagram: 'Instagram',
+    mapHint: 'We are in the coziest neighborhood',
+  },
+  footer: {
+    text: '2025 La Esquinita. Spanish gastronomy with soul.',
+    made: 'Made for true food lovers.',
+    privacy: 'Privacy policy',
+    jobs: 'Work with us',
+  },
+} as const;

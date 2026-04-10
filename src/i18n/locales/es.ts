@@ -1,0 +1,100 @@
+export const es = {
+  meta: {
+    siteName: 'La Esquinita',
+    pages: {
+      home: 'Inicio',
+      about: 'Nosotros',
+      menu: 'Carta',
+      contact: 'Contacto',
+    },
+  },
+  nav: {
+    home: 'Inicio',
+    about: 'Nosotros',
+    menu: 'Carta',
+    contact: 'Contacto',
+  },
+  lang: {
+    label: 'Idioma',
+    es: 'ES',
+    en: 'EN',
+    ru: 'RU',
+  },
+  hero: {
+    subtitle: 'rincón de sabor',
+    text: 'Auténtica cocina española en el corazón de la ciudad. Tradición, pasión y los mejores productos para ti y los tuyos.',
+    menu: 'Ver carta',
+    reserve: 'Reservar mesa',
+  },
+  about: {
+    title: 'Historia de La Esquinita',
+    text1:
+      'Un pequeño restaurante con un gran corazón. La Esquinita nace del amor por los aromas mediterráneos, las noches entre amigos y las crujientes tapas. Nuestro equipo crea cada día un ambiente acogedor español donde cada plato es una pequeña obra de arte. Ven a probar, sonreír y disfrutar de la vida.',
+    text2: 'Vino, tapas, paella y cientos de matices de placer.',
+  },
+  menu: {
+    title: 'Nuestros platos estrella',
+    allergens: {
+      legendTitle: 'Leyenda de alérgenos',
+      items: {
+        gluten: 'Gluten',
+        crustaceans: 'Crustáceos',
+        egg: 'Huevo',
+        fish: 'Pescado',
+        peanut: 'Cacahuete',
+        soy: 'Soja',
+        lactose: 'Lactosa',
+        nuts: 'Frutos secos',
+        celery: 'Apio',
+        mustard: 'Mostaza',
+        sesame: 'Sésamo',
+        sulfites: 'Sulfitos',
+        lupin: 'Altramuces',
+        mollusks: 'Moluscos',
+      },
+    },
+    items: {
+      paella: {
+        title: 'Paella Valenciana',
+        price: '€24.90',
+        desc: 'Arroz aromático con pollo, conejo, judías verdes y azafrán. Servido con limón y alioli.',
+        badge: 'Top ventas',
+      },
+      gazpacho: {
+        title: 'Gazpacho Andaluz',
+        price: '€9.50',
+        desc: 'Sopa fría de tomate con pepino, pimiento, ajo y aceite de oliva. Frescura de verano en cada cucharada.',
+        badge: 'Vegano',
+      },
+      chorizo: {
+        title: 'Chorizo al viejo',
+        price: '€13.90',
+        desc: 'Salchichas picantes de chorizo estofadas en sidra con pimentón y hierbas. Acompañado de pan crujiente.',
+        badge: 'Picante 2/3',
+      },
+      gambas: {
+        title: 'Gambas al Ajillo',
+        price: '€16.50',
+        desc: 'Gambas rey en aceite de ajo y guindilla con perejil. La tapa perfecta.',
+        badge: 'Especialidad del chef',
+      },
+    },
+  },
+  contact: {
+    title: 'Ven a visitarnos',
+    place: 'La Esquinita',
+    address: 'Calle del Sabor, 12, Madrid',
+    phone: '+34 912 34 56 78',
+    email: "hola{'@'}laesquinita.es",
+    hours: 'Todos los días: 12:00 - 23:00 (vie-sáb hasta 01:00)',
+    reserve: 'Reservar mesa',
+    instagram: 'Instagram',
+    mapHint: 'Estamos en el barrio más acogedor',
+  },
+  footer: {
+    text: '2025 La Esquinita. Gastronomía española con alma.',
+    made: 'Hecho para los auténticos foodies.',
+    privacy: 'Política de privacidad',
+    jobs: 'Trabaja con nosotros',
+  },
+} as const;
