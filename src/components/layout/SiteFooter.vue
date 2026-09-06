@@ -11,11 +11,6 @@ const { t } = useI18n();
         &copy; {{ t('footer.text') }}<br />
         {{ t('footer.made') }}
       </p>
-      <p class="footer-links">
-        <span>{{ t('footer.privacy') }}</span>
-        |
-        <span>{{ t('footer.jobs') }}</span>
-      </p>
     </div>
   </footer>
 </template>

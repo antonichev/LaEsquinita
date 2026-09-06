@@ -1,7 +1,7 @@
 <template>
-  <MenuSection />
+  <FullMenuSection />
 </template>
 
 <script setup lang="ts">
-import MenuSection from '../components/sections/MenuSection.vue';
+import FullMenuSection from '../components/sections/FullMenuSection.vue';
 </script>

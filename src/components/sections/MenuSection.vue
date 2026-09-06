@@ -1,50 +1,46 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { allergenIconMap, type AllergenKey } from '../../data/allergens';
 import {
-  allergenIconMap,
-  type AllergenKey,
-  dishAllergens,
-  type DishKey,
-} from '../../data/allergens';
+  featuredDishIds,
+  getMenuItem,
+  type FeaturedDishId,
+} from '../../data/menu';
+import arrozMariscoPhoto from '../../assets/menu/arroz-marisco.jpg';
+import empanadasPhoto from '../../assets/menu/empanadas.jpg';
+import ensaladaCesarPhoto from '../../assets/menu/ensalada-cesar.jpg';
+import pulpoPhoto from '../../assets/menu/pulpo.jpg';
 
-const { t } = useI18n();
+const { t, te } = useI18n();
 
-const dishKeys: DishKey[] = ['paella', 'gazpacho', 'chorizo', 'gambas'];
-
-const allergenLegend = computed(() =>
-  (Object.keys(allergenIconMap) as AllergenKey[]).map((allergen) => ({
-    key: allergen,
-    icon: allergenIconMap[allergen],
-    label: t(`menu.allergens.items.${allergen}`),
-  })),
-);
-
-const menuCardImages: Record<DishKey, string> = {
-  paella:
-    "url('https://images.unsplash.com/photo-1534080564583-6be75777b70a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')",
-  gazpacho:
-    "url('https://images.unsplash.com/photo-1726514734256-cddb936ac80d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  chorizo:
-    "url('https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')",
-  gambas:
-    "url('https://images.unsplash.com/photo-1619860705619-1e0ba34091e0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+const featuredDishImages: Record<FeaturedDishId, string> = {
+  arroz_marisco: `url('${arrozMariscoPhoto}')`,
+  ensalada_cesar: `url('${ensaladaCesarPhoto}')`,
+  empanada_carne: `url('${empanadasPhoto}')`,
+  pulpo: `url('${pulpoPhoto}')`,
 };
 
 const menuCards = computed(() =>
-  dishKeys.map((dish) => ({
-    key: dish,
-    image: menuCardImages[dish],
-    title: t(`menu.items.${dish}.title`),
-    price: t(`menu.items.${dish}.price`),
-    desc: t(`menu.items.${dish}.desc`),
-    badge: t(`menu.items.${dish}.badge`),
-    allergens: Array.from(dishAllergens[dish]).map((allergen) => ({
-      key: allergen,
-      icon: allergenIconMap[allergen],
-      label: t(`menu.allergens.items.${allergen}`),
-    })),
-  })),
+  featuredDishIds.map((dish) => {
+    const menuItem = getMenuItem(dish);
+    const allergens = (menuItem?.allergens ?? []) as AllergenKey[];
+    const previewTitleKey = `menu.items.${dish}.previewTitle`;
+
+    return {
+      key: dish,
+      image: featuredDishImages[dish],
+      title: te(previewTitleKey) ? t(previewTitleKey) : t(`menu.items.${dish}.title`),
+      price: menuItem?.price ?? '',
+      desc: t(`menu.items.${dish}.desc`),
+      badge: t(`menu.items.${dish}.badge`),
+      allergens: allergens.map((allergen) => ({
+        key: allergen,
+        icon: allergenIconMap[allergen],
+        label: t(`menu.allergens.items.${allergen}`),
+      })),
+    };
+  }),
 );
 </script>
 
@@ -54,21 +50,7 @@ const menuCards = computed(() =>
     class="menu-section"
   >
     <div class="container">
-      <h2 class="section-title">{{ t('menu.title') }}</h2>
-      <div class="allergen-legend">
-        <p class="allergen-legend-title">
-          {{ t('menu.allergens.legendTitle') }}
-        </p>
-        <ul class="allergen-legend-list">
-          <li
-            v-for="allergen in allergenLegend"
-            :key="allergen.key"
-          >
-            <i :class="allergen.icon"></i>
-            <span>{{ allergen.label }}</span>
-          </li>
-        </ul>
-      </div>
+      <h2 class="section-title">{{ t('menu.previewTitle') }}</h2>
       <div class="menu-grid">
         <article
           v-for="item in menuCards"
@@ -104,6 +86,15 @@ const menuCards = computed(() =>
             </span>
           </div>
         </article>
+      </div>
+      <p class="menu-price-note">{{ t('menu.priceNote') }}</p>
+      <div class="menu-preview-cta">
+        <RouterLink
+          to="/menu"
+          class="btn btn-primary"
+        >
+          {{ t('menu.viewFull') }}
+        </RouterLink>
       </div>
     </div>
   </section>

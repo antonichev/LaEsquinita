@@ -1,5 +1,3 @@
-export type DishKey = 'paella' | 'gazpacho' | 'chorizo' | 'gambas';
-
 export type AllergenKey =
   | 'gluten'
   | 'crustaceans'
@@ -33,9 +31,4 @@ export const allergenIconMap: Record<AllergenKey, string> = {
   mollusks: 'fas fa-water',
 };
 
-export const dishAllergens: Record<DishKey, Set<AllergenKey>> = {
-  paella: new Set(['crustaceans', 'fish']),
-  gazpacho: new Set(),
-  chorizo: new Set(['gluten', 'sulfites']),
-  gambas: new Set(['crustaceans']),
-};
+export const allergenKeys = Object.keys(allergenIconMap) as AllergenKey[];
